@@ -1,0 +1,17 @@
+{
+    "extends": "../../tsconfig.base.json",
+    "compilerOptions": {
+        "declaration": false,
+        "baseUrl": "./",
+        "paths": {
+            "src/*": ["./src/*"]
+        },
+        "rootDir": "src",
+        "plugins": [
+            { "transform": "typescript-transform-paths" },
+            { "transform": "typescript-transform-paths", "afterDeclarations": true }
+        ]
+    },
+    "include": ["./src"],
+    "exclude": ["node_modules", "./lib", "./dist", "./types-dist", "./tests"]
+}
