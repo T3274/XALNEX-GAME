@@ -43,7 +43,6 @@ background-color: red;
             manifestUrl: 'https://https://t3274.github.io/XALNEX-GAME/index.htmL/tonconnect-manifest.json', // Update with your manifest URL
             buttonRootId: 'ton-connect' // Listen for connection status changes tonConnectUI.onStatusChange((wallet) => { if (wallet) { // User is connected const walletAddress = wallet.account.address; // Display the wallet address in your app document.getElementById('wallet-address').textContent = walletAddress; } else { // User is disconnected document.getElementById('wallet-address').textContent = 'Not connected'; } });
         });
-window.onload = async () => { const connector = new TonConnectSDK.TonConnect({ manifestUrl: 'https://t3274.github.io/XALNEX-GAME/index.htm/tonconnect-manifest.json' });
         // Handle connection events
         tonConnectUI.onStatusChange((wallet) => {
             const sendButton = document.getElementById('send-transaction');
@@ -77,6 +76,8 @@ window.onload = async () => { const connector = new TonConnectSDK.TonConnect({ m
                 console.error('Transaction failed:', error);
             }
         })
+        window.onload = async () => { const connector = new TonConnectSDK.TonConnect({ manifestUrl: 'https://t3274.github.io/XALNEX-GAME/index.htm/tonconnect-manifest.json' });
+
     </script>
      
 </body>
